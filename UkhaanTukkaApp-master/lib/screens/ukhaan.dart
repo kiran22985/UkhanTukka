@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:favorite_button/favorite_button.dart';
 
 class UkhanTukka extends StatefulWidget {
   final String title;
@@ -50,11 +51,13 @@ class _UkhanTukkaState extends State<UkhanTukka> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20)),
                         child: ListTile(
-                          trailing: IconButton(
-                              onPressed: () {
-                                //widget.products!.removeAt(index);
-                              },
-                              icon: Icon(Icons.favorite_border),color: Colors.white,),
+                          trailing: FavoriteButton(
+                            iconColor: Colors.cyan,
+                            isFavorite: false,
+                            valueChanged: (_isFavourite) {
+                              print('Is Favourite $_isFavourite)');
+                            },
+                          ),
                           title: Text(
                             ukhan,
                             style: const TextStyle(
